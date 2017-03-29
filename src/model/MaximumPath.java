@@ -18,22 +18,18 @@ public class MaximumPath {
 		
 		PyramidArray p = new PyramidArray(sourceData);
 		int[] newLineArray;
-		for(int i = p.getPyramid().length - 1; i > 0; i--) {
-			newLineArray = new int[i - 1];
-			for(int j = 0; j < i - 1; j++) {
-				// TODO remove debug variables
-				int a = p.getPyramid()[i - 1][j];
-				int b = p.getPyramid()[i][j];
-				int c = p.getPyramid()[i][j + 1];
+		for(int i = p.getPyramid().length - 1; i >= 0; i--) {
+			newLineArray = new int[i];
+			for(int j = 0; j < i; j++) {
 				
 				int val1 = p.getPyramid()[i - 1][j] + p.getPyramid()[i][j];
 				int val2 = p.getPyramid()[i - 1][j] + p.getPyramid()[i][j + 1];
 				
 				newLineArray[j] = Math.max(val1, val2);
-				System.out.println(newLineArray[j]);
+				
 			}
 			
-			p.setNewLine(i, newLineArray);
+			p.setNewLine(i - 1, newLineArray);
 			
 		}
 		

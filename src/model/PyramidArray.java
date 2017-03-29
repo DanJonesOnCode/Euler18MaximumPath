@@ -35,7 +35,11 @@ public class PyramidArray {
 	}
 	
 	public void setNewLine(int row, int[] newLine) {
-		this.pyramid[row] = newLine;
+		for(int i = 0; i < newLine.length; i++) {
+			this.pyramid[row][i] = newLine[i];
+			
+		}
+		
 	}
 	
 
